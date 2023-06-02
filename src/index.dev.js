@@ -1,4 +1,3 @@
-import './styles/style.scss';
 import momentJalaali from 'moment-jalaali';
 import DatePicker from './components/DatePicker';
 

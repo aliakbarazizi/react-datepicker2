@@ -6,7 +6,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './docs/preview/index.html',
   filename: './index.html',
   inject: 'false'
-})
+});
 
 module.exports = {
   entry: './docs/src/boot.js',
@@ -25,45 +25,48 @@ module.exports = {
       {
         test: /\.(ttf|eot|woff|woff2)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "fonts/[name].[ext]",
-          },
-        },
+            name: 'fonts/[name].[ext]'
+          }
+        }
       },
       {
         test: /\.(js|jsx)$/,
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react']
+            }
           }
-        }],
+        ],
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader']
       },
       {
         use: 'file-loader',
-        test: /\.(woff(2)?|ttf)(\?v=\d+\.\d+\.\d+)?$/,
-      }, {
+        test: /\.(woff(2)?|ttf)(\?v=\d+\.\d+\.\d+)?$/
+      },
+      {
         test: /\.scss$/,
         use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
+          'style-loader', // creates style nodes from JS strings
+          'css-loader' // translates CSS into CommonJS
         ]
-      }]
+      }
+    ]
   },
   plugins: [HtmlWebpackPluginConfig],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
   devtool: 'source-map',
   devServer: {
     // host: '0.0.0.0',//type your ip address for testing on local network
     port: 8080
   }
-}
+};

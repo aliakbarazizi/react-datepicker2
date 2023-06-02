@@ -1,7 +1,6 @@
 import nodeResolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import filesize from 'rollup-plugin-filesize';
 import localResolve from 'rollup-plugin-local-resolve';
@@ -49,7 +48,6 @@ const config = {
     }),
     // filesize(),
     // terser(),
-    postcss(),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production')
     })

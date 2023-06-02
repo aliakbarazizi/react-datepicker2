@@ -1,5 +1,5 @@
-import React from 'react'
-import momentJalaali from 'moment-jalaali'
+import React from 'react';
+import momentJalaali from 'moment-jalaali';
 import DatePicker from '../../../src/components/DatePicker';
 
 class component extends React.Component {
@@ -10,12 +10,14 @@ class component extends React.Component {
     };
   }
   render() {
-    return <DatePicker
-      tetherAttachment="bottom center"
-      isGregorian={false}
-      value={this.state.value}
-      onChange={value => this.setState({ value })}
-    />
+    return (
+      <DatePicker
+        tetherProps={{ attachment: 'bottom center' }}
+        isGregorian={false}
+        value={this.state.value}
+        onChange={value => this.setState({ value })}
+      />
+    );
   }
 }
 

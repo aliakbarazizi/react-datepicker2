@@ -1,6 +1,7 @@
 declare module 'react-datepicker2' {
   import { Component, DOMAttributes, CSSProperties, ChangeEventHandler } from 'react';
   import { Moment } from 'moment-jalaali';
+  import { TetherComponentProps } from 'react-tether';
 
   export interface CalenderProps {
     min?: Moment;
@@ -72,7 +73,7 @@ declare module 'react-datepicker2' {
     timePicker?: boolean;
     calendarClass?: string;
     datePickerClass?: string;
-    tetherAttachment?: string;
+    tetherProps?: TetherComponentProps;
     inputReadOnly?: boolean;
     ranges?: [Moment, Moment];
     className?: string;

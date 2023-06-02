@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import momentJalaali from 'moment-jalaali';
 import TetherComponent from 'react-tether';
 import classnames from 'classnames';
@@ -9,41 +8,6 @@ import MyTimePicker from './CustomTimePicker';
 const outsideClickIgnoreClass = 'ignore--click--outside';
 
 export default class DatePicker extends Component {
-  static propTypes = {
-    value: PropTypes.object,
-    defaultValue: PropTypes.object,
-    onChange: PropTypes.func,
-    onInputChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    children: PropTypes.node,
-    min: PropTypes.object,
-    max: PropTypes.object,
-    defaultYear: PropTypes.object,
-    defaultMonth: PropTypes.object,
-    inputFormat: PropTypes.string,
-    inputJalaaliFormat: PropTypes.string,
-    removable: PropTypes.bool,
-    styles: PropTypes.object,
-    calendarStyles: PropTypes.object,
-    calendarContainerProps: PropTypes.object,
-    isGregorian: PropTypes.bool, // jalaali or gregorian
-    timePicker: PropTypes.bool,
-    calendarClass: PropTypes.string,
-    datePickerClass: PropTypes.string,
-    tetherAttachment: PropTypes.string,
-    inputReadOnly: PropTypes.bool,
-    ranges: PropTypes.array,
-    showToggleButton: PropTypes.bool,
-    toggleButtonText: PropTypes.any,
-    showTodayButton: PropTypes.bool,
-    placeholder: PropTypes.string,
-    name: PropTypes.string,
-    persianDigits: PropTypes.bool,
-    setTodayOnBlur: PropTypes.bool,
-    disableYearSelector: PropTypes.bool,
-  };
-
   static defaultProps = {
     styles: undefined,
     calendarContainerProps: {},
@@ -55,6 +19,16 @@ export default class DatePicker extends Component {
     persianDigits: true,
     setTodayOnBlur: true,
     disableYearSelector: false,
+    tetherProps: {
+      attachment: 'top center',
+      constraints: [
+        {
+          to: 'window',
+          attachment: 'together'
+        }
+      ],
+      offset: '-10px -10px'
+    }
   };
 
   constructor(props) {
@@ -112,7 +86,6 @@ export default class DatePicker extends Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-
     if ('value' in nextProps) {
       if (nextProps.value === null) {
         this.setState({
@@ -120,14 +93,13 @@ export default class DatePicker extends Component {
           inputValue: '',
           momentValue: null
         });
-      }
-      else if ((typeof nextProps.value === 'undefined' && typeof this.props.value !== 'undefined') ||
+      } else if (
+        (typeof nextProps.value === 'undefined' && typeof this.props.value !== 'undefined') ||
         (typeof nextProps.value !== 'undefined' && !nextProps.value.isSame(this.props.value))
       ) {
         this.setMomentValue(nextProps.value);
       }
     }
-
 
     if ('isGregorian' in nextProps && nextProps.isGregorian !== this.props.isGregorian) {
       const { inputFormat: nextPropsInputFormat } = nextProps;
@@ -150,7 +122,7 @@ export default class DatePicker extends Component {
 
     if ('setTodayOnBlur' in nextProps && nextProps.setTodayOnBlur !== this.props.setTodayOnBlur) {
       this.setState({
-        setTodayOnBlur: nextProps.setTodayOnBlur,
+        setTodayOnBlur: nextProps.setTodayOnBlur
       });
     }
   }
@@ -190,10 +162,10 @@ export default class DatePicker extends Component {
     const regex1 = /[\u0660-\u0669]/g;
     const regex2 = /[\u06f0-\u06f9]/g;
     return str
-      .replace(regex1, function (c) {
+      .replace(regex1, function(c) {
         return c.charCodeAt(0) - 0x0660;
       })
-      .replace(regex2, function (c) {
+      .replace(regex2, function(c) {
         return c.charCodeAt(0) - 0x06f0;
       });
   }
@@ -202,7 +174,7 @@ export default class DatePicker extends Component {
     if (!str) return str;
     const regex = /[0-9]/g;
     const id = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-    return str.replace(regex, function (w) {
+    return str.replace(regex, function(w) {
       return id[+w];
     });
   }
@@ -248,8 +220,7 @@ export default class DatePicker extends Component {
 
   hanldeBlur(event) {
     if (this.props.onChange) {
-      if (!event.target.value && this.state.setTodayOnBlur === false)
-        return;
+      if (!event.target.value && this.state.setTodayOnBlur === false) return;
 
       const { inputFormat, inputJalaaliFormat, isGregorian } = this.state;
       const inputValue = this.toEnglishDigits(event.target.value);
@@ -312,7 +283,7 @@ export default class DatePicker extends Component {
       styles,
       calendarContainerProps,
       ranges,
-      disableYearSelector,
+      disableYearSelector
     } = this.props;
 
     return (
@@ -371,14 +342,7 @@ export default class DatePicker extends Component {
     return (
       <TetherComponent
         ref={tether => (this.tether = tether)}
-        attachment={this.props.tetherAttachment ? this.props.tetherAttachment : 'top center'}
-        constraints={[
-          {
-            to: 'window',
-            attachment: 'together'
-          }
-        ]}
-        offset="-10px -10px"
+        {...this.props.tetherProps}
         onResize={() => this.tether && this.tether.position()}
         /* renderTarget: This is what the item will be tethered to, make sure to attach the ref */
         renderTarget={ref => this.renderInput(ref)}
