@@ -54,48 +54,48 @@
 	var _classCallCheck = unwrapExports(classCallCheck);
 
 	var _typeof_1 = createCommonjsModule(function (module) {
-	function _typeof(obj) {
+	function _typeof(o) {
 	  "@babel/helpers - typeof";
 
-	  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-	    return typeof obj;
-	  } : function (obj) {
-	    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-	  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+	  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+	    return typeof o;
+	  } : function (o) {
+	    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+	  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
 	}
 	module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	});
 
 	unwrapExports(_typeof_1);
 
-	var toPrimitive = createCommonjsModule(function (module) {
+	var toPrimitive_1 = createCommonjsModule(function (module) {
 	var _typeof = _typeof_1["default"];
-	function _toPrimitive(input, hint) {
-	  if (_typeof(input) !== "object" || input === null) return input;
-	  var prim = input[Symbol.toPrimitive];
-	  if (prim !== undefined) {
-	    var res = prim.call(input, hint || "default");
-	    if (_typeof(res) !== "object") return res;
+	function toPrimitive(t, r) {
+	  if ("object" != _typeof(t) || !t) return t;
+	  var e = t[Symbol.toPrimitive];
+	  if (void 0 !== e) {
+	    var i = e.call(t, r || "default");
+	    if ("object" != _typeof(i)) return i;
 	    throw new TypeError("@@toPrimitive must return a primitive value.");
 	  }
-	  return (hint === "string" ? String : Number)(input);
+	  return ("string" === r ? String : Number)(t);
 	}
-	module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	});
 
-	unwrapExports(toPrimitive);
+	unwrapExports(toPrimitive_1);
 
-	var toPropertyKey = createCommonjsModule(function (module) {
+	var toPropertyKey_1 = createCommonjsModule(function (module) {
 	var _typeof = _typeof_1["default"];
 
-	function _toPropertyKey(arg) {
-	  var key = toPrimitive(arg, "string");
-	  return _typeof(key) === "symbol" ? key : String(key);
+	function toPropertyKey(t) {
+	  var i = toPrimitive_1(t, "string");
+	  return "symbol" == _typeof(i) ? i : i + "";
 	}
-	module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	});
 
-	unwrapExports(toPropertyKey);
+	unwrapExports(toPropertyKey_1);
 
 	var createClass = createCommonjsModule(function (module) {
 	function _defineProperties(target, props) {
@@ -104,7 +104,7 @@
 	    descriptor.enumerable = descriptor.enumerable || false;
 	    descriptor.configurable = true;
 	    if ("value" in descriptor) descriptor.writable = true;
-	    Object.defineProperty(target, toPropertyKey(descriptor.key), descriptor);
+	    Object.defineProperty(target, toPropertyKey_1(descriptor.key), descriptor);
 	  }
 	}
 	function _createClass(Constructor, protoProps, staticProps) {
@@ -130,7 +130,35 @@
 	module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	});
 
-	var _assertThisInitialized = unwrapExports(assertThisInitialized);
+	unwrapExports(assertThisInitialized);
+
+	var possibleConstructorReturn = createCommonjsModule(function (module) {
+	var _typeof = _typeof_1["default"];
+
+	function _possibleConstructorReturn(self, call) {
+	  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+	    return call;
+	  } else if (call !== void 0) {
+	    throw new TypeError("Derived constructors may only return object or undefined");
+	  }
+	  return assertThisInitialized(self);
+	}
+	module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	});
+
+	var _possibleConstructorReturn = unwrapExports(possibleConstructorReturn);
+
+	var getPrototypeOf = createCommonjsModule(function (module) {
+	function _getPrototypeOf(o) {
+	  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+	    return o.__proto__ || Object.getPrototypeOf(o);
+	  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	  return _getPrototypeOf(o);
+	}
+	module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	});
+
+	var _getPrototypeOf = unwrapExports(getPrototypeOf);
 
 	var setPrototypeOf = createCommonjsModule(function (module) {
 	function _setPrototypeOf(o, p) {
@@ -167,37 +195,9 @@
 
 	var _inherits = unwrapExports(inherits);
 
-	var possibleConstructorReturn = createCommonjsModule(function (module) {
-	var _typeof = _typeof_1["default"];
-
-	function _possibleConstructorReturn(self, call) {
-	  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-	    return call;
-	  } else if (call !== void 0) {
-	    throw new TypeError("Derived constructors may only return object or undefined");
-	  }
-	  return assertThisInitialized(self);
-	}
-	module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
-	});
-
-	var _possibleConstructorReturn = unwrapExports(possibleConstructorReturn);
-
-	var getPrototypeOf = createCommonjsModule(function (module) {
-	function _getPrototypeOf(o) {
-	  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
-	    return o.__proto__ || Object.getPrototypeOf(o);
-	  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-	  return _getPrototypeOf(o);
-	}
-	module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
-	});
-
-	var _getPrototypeOf = unwrapExports(getPrototypeOf);
-
 	var defineProperty = createCommonjsModule(function (module) {
 	function _defineProperty(obj, key, value) {
-	  key = toPropertyKey(key);
+	  key = toPropertyKey_1(key);
 	  if (key in obj) {
 	    Object.defineProperty(obj, key, {
 	      value: value,
@@ -246,16 +246,15 @@
 	  __html: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 315.5 315.5" style="enable-background:new 0 0 315.5 315.5;" xml:space="preserve"><g><path class="arrow-icon" d="M242,141L109,8c-5-5-12-8-18-8S79,3,74,8c-10,10-10,24,0,34l116,116L74,274c-10,10-10,24,0,34s25,10,35,0l133-133c5-5,7-11,7-17C249,151,247,146,242,141z"/></g></svg>'
 	};
 
-	function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 	var Heading = /*#__PURE__*/function (_Component) {
-	  _inherits(Heading, _Component);
-	  var _super = _createSuper(Heading);
 	  function Heading() {
 	    _classCallCheck(this, Heading);
-	    return _super.apply(this, arguments);
+	    return _callSuper(this, Heading, arguments);
 	  }
-	  _createClass(Heading, [{
+	  _inherits(Heading, _Component);
+	  return _createClass(Heading, [{
 	    key: "handleMonthClick",
 	    value: function handleMonthClick(event) {
 	      var setCalendarMode = this.context.setCalendarMode;
@@ -303,7 +302,6 @@
 	      })));
 	    }
 	  }]);
-	  return Heading;
 	}(React.Component);
 	_defineProperty(Heading, "propTypes", {
 	  month: PropTypes.object.isRequired,
@@ -316,20 +314,19 @@
 	  setCalendarMode: PropTypes.func.isRequired
 	});
 
-	function _createSuper$1(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$1(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$1(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$1() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$1() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$1 = function _isNativeReflectConstruct() { return !!t; })(); }
 
 	// Day of week names for use in date-picker heading
 	var dayOfWeekNamesJalaali = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
 	var dayOfWeekNamesGregorian = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 	var DaysOfWeek = /*#__PURE__*/function (_Component) {
-	  _inherits(DaysOfWeek, _Component);
-	  var _super = _createSuper$1(DaysOfWeek);
 	  function DaysOfWeek() {
 	    _classCallCheck(this, DaysOfWeek);
-	    return _super.apply(this, arguments);
+	    return _callSuper$1(this, DaysOfWeek, arguments);
 	  }
-	  _createClass(DaysOfWeek, [{
+	  _inherits(DaysOfWeek, _Component);
+	  return _createClass(DaysOfWeek, [{
 	    key: "render",
 	    value: function render() {
 	      var _this$props = this.props,
@@ -345,23 +342,21 @@
 	      }));
 	    }
 	  }]);
-	  return DaysOfWeek;
 	}(React.Component);
 	_defineProperty(DaysOfWeek, "propTypes", {
 	  styles: PropTypes.object,
 	  isGregorian: PropTypes.bool
 	});
 
-	function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$2(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$2() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$2() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$2 = function _isNativeReflectConstruct() { return !!t; })(); }
 	var MonthsViewHeading = /*#__PURE__*/function (_Component) {
-	  _inherits(MonthsViewHeading, _Component);
-	  var _super = _createSuper$2(MonthsViewHeading);
 	  function MonthsViewHeading() {
 	    _classCallCheck(this, MonthsViewHeading);
-	    return _super.apply(this, arguments);
+	    return _callSuper$2(this, MonthsViewHeading, arguments);
 	  }
-	  _createClass(MonthsViewHeading, [{
+	  _inherits(MonthsViewHeading, _Component);
+	  return _createClass(MonthsViewHeading, [{
 	    key: "handleYearClick",
 	    value: function handleYearClick(event) {
 	      var setCalendarMode = this.context.setCalendarMode;
@@ -401,7 +396,6 @@
 	      }));
 	    }
 	  }]);
-	  return MonthsViewHeading;
 	}(React.Component);
 	_defineProperty(MonthsViewHeading, "propTypes", {
 	  year: PropTypes.object.isRequired,
@@ -416,28 +410,27 @@
 	  setCalendarMode: PropTypes.func.isRequired
 	});
 
-	function _createSuper$3(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$3(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$3() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$3(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$3() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$3() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$3 = function _isNativeReflectConstruct() { return !!t; })(); }
 
 	// List of months
 	var monthsJalaali = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
 	var monthsGregorian = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	var MonthSelector = /*#__PURE__*/function (_Component) {
-	  _inherits(MonthSelector, _Component);
-	  var _super = _createSuper$3(MonthSelector);
 	  function MonthSelector() {
 	    var _this;
 	    _classCallCheck(this, MonthSelector);
 	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
 	      args[_key] = arguments[_key];
 	    }
-	    _this = _super.call.apply(_super, [this].concat(args));
-	    _defineProperty(_assertThisInitialized(_this), "state", {
+	    _this = _callSuper$3(this, MonthSelector, [].concat(args));
+	    _defineProperty(_this, "state", {
 	      year: _this.props.selectedMonth
 	    });
 	    return _this;
 	  }
-	  _createClass(MonthSelector, [{
+	  _inherits(MonthSelector, _Component);
+	  return _createClass(MonthSelector, [{
 	    key: "nextYear",
 	    value: function nextYear() {
 	      this.setState({
@@ -500,7 +493,6 @@
 	      })));
 	    }
 	  }]);
-	  return MonthSelector;
 	}(React.Component);
 	_defineProperty(MonthSelector, "propTypes", {
 	  styles: PropTypes.object,
@@ -513,24 +505,22 @@
 	  setMonth: PropTypes.func.isRequired
 	});
 
-	function _createSuper$4(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$4(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$4() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$4(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$4() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$4() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$4 = function _isNativeReflectConstruct() { return !!t; })(); }
 
 	// List of months
 	var yearsJalaali = range(momentJalaali(new Date()).jYear() + 100, 1300);
 	var yearsGregorian = range(momentJalaali(new Date()).year() + 100, 1920);
 	var YearSelector = /*#__PURE__*/function (_Component) {
-	  _inherits(YearSelector, _Component);
-	  var _super = _createSuper$4(YearSelector);
 	  function YearSelector(props) {
 	    var _this;
 	    _classCallCheck(this, YearSelector);
-	    _this = _super.call(this, props);
-	    _defineProperty(_assertThisInitialized(_this), "state", {
+	    _this = _callSuper$4(this, YearSelector, [props]);
+	    _defineProperty(_this, "state", {
 	      year: _this.props.selectedYear,
 	      month: _this.props.selectedMonth
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getOffsetTop", function (element) {
+	    _defineProperty(_this, "getOffsetTop", function (element) {
 	      var offsetTop = 0;
 	      while (element) {
 	        console.log(element.scrollTop);
@@ -539,7 +529,7 @@
 	      }
 	      return offsetTop;
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "scrollToCurrentYearPositionRef", function () {
+	    _defineProperty(_this, "scrollToCurrentYearPositionRef", function () {
 	      var marginTop = 160;
 	      _this.yearsContainerRef.current.scrollTo({
 	        top: _this.getOffsetTop(_this.currentYearPositionRef.current) - marginTop,
@@ -550,7 +540,8 @@
 	    _this.yearsContainerRef = /*#__PURE__*/React__default.createRef();
 	    return _this;
 	  }
-	  _createClass(YearSelector, [{
+	  _inherits(YearSelector, _Component);
+	  return _createClass(YearSelector, [{
 	    key: "componentDidMount",
 	    value: function componentDidMount() {
 	      this.scrollToCurrentYearPositionRef();
@@ -619,7 +610,6 @@
 	      })));
 	    }
 	  }]);
-	  return YearSelector;
 	}(React.Component);
 	_defineProperty(YearSelector, "propTypes", {
 	  styles: PropTypes.object,
@@ -636,12 +626,11 @@
 	function _objectWithoutPropertiesLoose(source, excluded) {
 	  if (source == null) return {};
 	  var target = {};
-	  var sourceKeys = Object.keys(source);
-	  var key, i;
-	  for (i = 0; i < sourceKeys.length; i++) {
-	    key = sourceKeys[i];
-	    if (excluded.indexOf(key) >= 0) continue;
-	    target[key] = source[key];
+	  for (var key in source) {
+	    if (Object.prototype.hasOwnProperty.call(source, key)) {
+	      if (excluded.indexOf(key) >= 0) continue;
+	      target[key] = source[key];
+	    }
 	  }
 	  return target;
 	}
@@ -672,16 +661,15 @@
 	var _objectWithoutProperties = unwrapExports(objectWithoutProperties);
 
 	var _excluded = ["day", "disabled", "selected", "isCurrentMonth", "onClick", "styles", "isGregorian", "isToday", "colors"];
-	function _createSuper$5(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$5(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$5() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$5(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$5() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$5() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$5 = function _isNativeReflectConstruct() { return !!t; })(); }
 	var Day = /*#__PURE__*/function (_Component) {
-	  _inherits(Day, _Component);
-	  var _super = _createSuper$5(Day);
 	  function Day() {
 	    _classCallCheck(this, Day);
-	    return _super.apply(this, arguments);
+	    return _callSuper$5(this, Day, arguments);
 	  }
-	  _createClass(Day, [{
+	  _inherits(Day, _Component);
+	  return _createClass(Day, [{
 	    key: "shouldComponentUpdate",
 	    value: function shouldComponentUpdate(nextProps) {
 	      return nextProps.selected !== this.props.selected || nextProps.disabled !== this.props.disabled || nextProps.isCurrentMonth !== this.props.isCurrentMonth;
@@ -704,7 +692,6 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _classnames;
 	      var _this$props2 = this.props,
 	        day = _this$props2.day,
 	        disabled = _this$props2.disabled,
@@ -716,7 +703,7 @@
 	        isToday = _this$props2.isToday,
 	        colors = _this$props2.colors,
 	        rest = _objectWithoutProperties(_this$props2, _excluded);
-	      var className = classnames(styles.dayWrapper, (_classnames = {}, _defineProperty(_classnames, styles.selected, selected), _defineProperty(_classnames, styles.currentMonth, isCurrentMonth), _defineProperty(_classnames, styles.today, isToday), _defineProperty(_classnames, styles.disabled, disabled), _classnames));
+	      var className = classnames(styles.dayWrapper, _defineProperty(_defineProperty(_defineProperty(_defineProperty({}, styles.selected, selected), styles.currentMonth, isCurrentMonth), styles.today, isToday), styles.disabled, disabled));
 	      var highlightDotContainer = classnames("highLightDot-container", _defineProperty({}, styles.disabled, disabled));
 	      return /*#__PURE__*/React__default.createElement("div", {
 	        className: className
@@ -738,7 +725,6 @@
 	      })));
 	    }
 	  }]);
-	  return Day;
 	}(React.Component);
 	_defineProperty(Day, "propTypes", {
 	  day: PropTypes.object.isRequired,
@@ -823,7 +809,7 @@
 	      });
 	    }
 	  }
-	  _createClass(RangesList, [{
+	  return _createClass(RangesList, [{
 	    key: "getDayState",
 	    value: function getDayState(day) {
 	      var disabled = this.ranges.some(function (x) {
@@ -846,22 +832,19 @@
 	      if (!('end' in range)) throw "'end' property is a required property of 'range' object.\n            range object: ".concat(JSON.stringify(range));
 	    }
 	  }]);
-	  return RangesList;
 	}();
 
-	function _createSuper$6(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$6(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$6() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$6(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$6() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$6() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$6 = function _isNativeReflectConstruct() { return !!t; })(); }
 	var Calendar = /*#__PURE__*/function (_Component) {
-	  _inherits(Calendar, _Component);
-	  var _super = _createSuper$6(Calendar);
 	  function Calendar() {
 	    var _this;
 	    _classCallCheck(this, Calendar);
 	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
 	      args[_key] = arguments[_key];
 	    }
-	    _this = _super.call.apply(_super, [this].concat(args));
-	    _defineProperty(_assertThisInitialized(_this), "state", {
+	    _this = _callSuper$6(this, Calendar, [].concat(args));
+	    _defineProperty(_this, "state", {
 	      year: _this.props.defaultYear || _this.props.selectedDay || momentJalaali(_this.props.min),
 	      month: _this.props.defaultMonth || _this.props.selectedDay || momentJalaali(_this.props.min),
 	      selectedDay: _this.props.selectedDay || _this.props.value || momentJalaali(),
@@ -869,12 +852,12 @@
 	      isGregorian: _this.props.isGregorian,
 	      ranges: new RangesList(_this.props.ranges)
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "setMode", function (mode) {
+	    _defineProperty(_this, "setMode", function (mode) {
 	      _this.setState({
 	        mode: mode
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "setYear", function (year) {
+	    _defineProperty(_this, "setYear", function (year) {
 	      var onYearChange = _this.props.onYearChange;
 	      _this.setState({
 	        year: year
@@ -883,7 +866,7 @@
 	        onYearChange(year);
 	      }
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "setMonth", function (month) {
+	    _defineProperty(_this, "setMonth", function (month) {
 	      var onMonthChange = _this.props.onMonthChange;
 	      _this.setState({
 	        month: month
@@ -892,12 +875,12 @@
 	        onMonthChange(month);
 	      }
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "setType", function (type) {
+	    _defineProperty(_this, "setType", function (type) {
 	      _this.setState({
 	        type: type
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "nextMonth", function () {
+	    _defineProperty(_this, "nextMonth", function () {
 	      var isGregorian = _this.state.isGregorian;
 	      var monthFormat = isGregorian ? 'Month' : 'jMonth';
 	      _this.setState({
@@ -906,7 +889,7 @@
 	        return _this.props.onMonthChange && _this.props.onMonthChange(_this.state.month);
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "prevMonth", function () {
+	    _defineProperty(_this, "prevMonth", function () {
 	      var isGregorian = _this.state.isGregorian;
 	      var monthFormat = isGregorian ? 'Month' : 'jMonth';
 	      _this.setState({
@@ -915,7 +898,7 @@
 	        return _this.props.onMonthChange && _this.props.onMonthChange(_this.state.month);
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "selectDay", function (selectedDay) {
+	    _defineProperty(_this, "selectDay", function (selectedDay) {
 	      var _this$state = _this.state,
 	        month = _this$state.month,
 	        isGregorian = _this$state.isGregorian;
@@ -939,7 +922,7 @@
 	        selectedDay: selectedDay
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "handleClickOnDay", function (selectedDay) {
+	    _defineProperty(_this, "handleClickOnDay", function (selectedDay) {
 	      var _this$props = _this.props,
 	        onSelect = _this$props.onSelect,
 	        onChange = _this$props.onChange;
@@ -949,14 +932,14 @@
 	      }
 	      if (onChange) onChange(selectedDay);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "handleClickOutside", function (event) {
+	    _defineProperty(_this, "handleClickOutside", function (event) {
 	      if (_this.props.onClickOutside) {
 	        _this.props.onClickOutside(event);
 	      }
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "days", null);
-	    _defineProperty(_assertThisInitialized(_this), "lastRenderedMonth", null);
-	    _defineProperty(_assertThisInitialized(_this), "renderMonthSelector", function () {
+	    _defineProperty(_this, "days", null);
+	    _defineProperty(_this, "lastRenderedMonth", null);
+	    _defineProperty(_this, "renderMonthSelector", function () {
 	      var _this$state2 = _this.state,
 	        month = _this$state2.month,
 	        isGregorian = _this$state2.isGregorian;
@@ -970,7 +953,7 @@
 	        selectedMonth: month
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "renderYearSelector", function () {
+	    _defineProperty(_this, "renderYearSelector", function () {
 	      var _this$state3 = _this.state,
 	        year = _this$state3.year,
 	        month = _this$state3.month,
@@ -983,7 +966,7 @@
 	        selectedMonth: month
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "renderDays", function () {
+	    _defineProperty(_this, "renderDays", function () {
 	      var _this$state4 = _this.state,
 	        month = _this$state4.month,
 	        selectedDay = _this$state4.selectedDay,
@@ -1044,7 +1027,8 @@
 	    });
 	    return _this;
 	  }
-	  _createClass(Calendar, [{
+	  _inherits(Calendar, _Component);
+	  return _createClass(Calendar, [{
 	    key: "getChildContext",
 	    value: function getChildContext() {
 	      return {
@@ -1141,7 +1125,6 @@
 	      }, isGregorian ? 'today' : 'امروز'));
 	    }
 	  }]);
-	  return Calendar;
 	}(React.Component);
 	_defineProperty(Calendar, "propTypes", {
 	  min: PropTypes.object,
@@ -1241,15 +1224,13 @@
 
 	var _toConsumableArray = unwrapExports(toConsumableArray);
 
-	function _createSuper$7(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$7(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$7() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$7(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$7() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$7() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$7 = function _isNativeReflectConstruct() { return !!t; })(); }
 	var Header = /*#__PURE__*/function (_React$Component) {
-	  _inherits(Header, _React$Component);
-	  var _super = _createSuper$7(Header);
 	  function Header(props) {
 	    var _this;
 	    _classCallCheck(this, Header);
-	    _this = _super.call(this, props);
+	    _this = _callSuper$7(this, Header, [props]);
 	    var _this$props = _this.props,
 	      value = _this$props.value,
 	      format = _this$props.format;
@@ -1257,12 +1238,13 @@
 	      str: value && value.format(format) || '',
 	      invalid: false
 	    };
-	    _this.onClear = _this.onClear.bind(_assertThisInitialized(_this));
-	    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
-	    _this.onKeyDown = _this.onKeyDown.bind(_assertThisInitialized(_this));
+	    _this.onClear = _this.onClear.bind(_this);
+	    _this.onInputChange = _this.onInputChange.bind(_this);
+	    _this.onKeyDown = _this.onKeyDown.bind(_this);
 	    return _this;
 	  }
-	  _createClass(Header, [{
+	  _inherits(Header, _React$Component);
+	  return _createClass(Header, [{
 	    key: "UNSAFE_componentWillReceiveProps",
 	    value: function UNSAFE_componentWillReceiveProps(nextProps) {
 	      var value = nextProps.value,
@@ -1412,7 +1394,6 @@
 	      }, this.getInput(), this.getClearButton());
 	    }
 	  }]);
-	  return Header;
 	}(React__default.Component);
 	_defineProperty(Header, "propTypes", {
 	  format: PropTypes.string,
@@ -1436,8 +1417,8 @@
 	  currentSelectPanel: PropTypes.string
 	});
 
-	function _createSuper$8(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$8(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$8() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$8(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$8() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$8() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$8 = function _isNativeReflectConstruct() { return !!t; })(); }
 	var scrollTo = function scrollTo(element, to, duration) {
 	  var requestAnimationFrame = window.requestAnimationFrame || function requestAnimationFrameTimeout() {
 	    return setTimeout(arguments[0], 10);
@@ -1456,36 +1437,33 @@
 	  });
 	};
 	var Select = /*#__PURE__*/function (_React$Component) {
-	  _inherits(Select, _React$Component);
-	  var _super = _createSuper$8(Select);
 	  function Select() {
 	    var _this;
 	    _classCallCheck(this, Select);
 	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
 	      args[_key] = arguments[_key];
 	    }
-	    _this = _super.call.apply(_super, [this].concat(args));
-	    _defineProperty(_assertThisInitialized(_this), "onSelect", function (value) {
+	    _this = _callSuper$8(this, Select, [].concat(args));
+	    _defineProperty(_this, "onSelect", function (value) {
 	      var _this$props = _this.props,
 	        onSelect = _this$props.onSelect,
 	        type = _this$props.type;
 	      _this.props.onSelect(type, value);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getOptions", function () {
+	    _defineProperty(_this, "getOptions", function () {
 	      var _this$props2 = _this.props,
 	        options = _this$props2.options,
 	        selectedIndex = _this$props2.selectedIndex,
 	        prefixCls = _this$props2.prefixCls;
 	      return options.map(function (item, index) {
-	        var _classnames;
-	        var cls = classnames((_classnames = {}, _defineProperty(_classnames, "".concat(prefixCls, "-select-option-selected"), selectedIndex === index), _defineProperty(_classnames, "".concat(prefixCls, "-select-option-disabled"), item.disabled), _classnames));
+	        var cls = classnames(_defineProperty(_defineProperty({}, "".concat(prefixCls, "-select-option-selected"), selectedIndex === index), "".concat(prefixCls, "-select-option-disabled"), item.disabled));
 	        var onclick = null;
 	        if (!item.disabled) {
 	          var value = +item.value;
 	          if (Number.isNaN(value)) {
 	            value = item.value;
 	          }
-	          onclick = _this.onSelect.bind(_assertThisInitialized(_this), value);
+	          onclick = _this.onSelect.bind(_this, value);
 	        }
 	        return /*#__PURE__*/React__default.createElement("li", {
 	          className: cls,
@@ -1495,9 +1473,9 @@
 	        }, typeof item.label !== 'undefined' ? item.label : item.value);
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "scrollToSelected", function (duration) {
+	    _defineProperty(_this, "scrollToSelected", function (duration) {
 	      // move to selected item
-	      var select = ReactDom.findDOMNode(_assertThisInitialized(_this));
+	      var select = ReactDom.findDOMNode(_this);
 	      var list = ReactDom.findDOMNode(_this.list);
 	      var index = _this.props.selectedIndex;
 	      if (index < 0) {
@@ -1509,7 +1487,8 @@
 	    });
 	    return _this;
 	  }
-	  _createClass(Select, [{
+	  _inherits(Select, _React$Component);
+	  return _createClass(Select, [{
 	    key: "componentDidMount",
 	    value: function componentDidMount() {
 	      // jump to selected option
@@ -1541,7 +1520,6 @@
 	      }, this.getOptions()));
 	    }
 	  }]);
-	  return Select;
 	}(React__default.Component);
 	_defineProperty(Select, "propTypes", {
 	  prefixCls: PropTypes.string,
@@ -1552,10 +1530,10 @@
 	  onMouseEnter: PropTypes.func
 	});
 
-	function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-	function _createSuper$9(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$9(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$9() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+	function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _callSuper$9(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$9() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$9() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$9 = function _isNativeReflectConstruct() { return !!t; })(); }
 	var pad = function pad(value) {
 	  return value < 10 ? "0".concat(value) : "".concat(value);
 	};
@@ -1571,16 +1549,14 @@
 	  };
 	};
 	var Combobox = /*#__PURE__*/function (_React$Component) {
-	  _inherits(Combobox, _React$Component);
-	  var _super = _createSuper$9(Combobox);
 	  function Combobox() {
 	    var _this;
 	    _classCallCheck(this, Combobox);
 	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
 	      args[_key] = arguments[_key];
 	    }
-	    _this = _super.call.apply(_super, [this].concat(args));
-	    _defineProperty(_assertThisInitialized(_this), "onItemChange", function (type, itemValue) {
+	    _this = _callSuper$9(this, Combobox, [].concat(args));
+	    _defineProperty(_this, "onItemChange", function (type, itemValue) {
 	      var _this$props = _this.props,
 	        onChange = _this$props.onChange,
 	        defaultOpenValue = _this$props.defaultOpenValue;
@@ -1605,10 +1581,10 @@
 	      }
 	      onChange(value);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onEnterSelectPanel", function (range) {
+	    _defineProperty(_this, "onEnterSelectPanel", function (range) {
 	      _this.props.onCurrentSelectPanelChange(range);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getHourSelect", function (hour) {
+	    _defineProperty(_this, "getHourSelect", function (hour) {
 	      var _this$props2 = _this.props,
 	        prefixCls = _this$props2.prefixCls,
 	        showAMPM = _this$props2.showAMPM,
@@ -1641,10 +1617,10 @@
 	        selectedIndex: hourOptions.indexOf(hour),
 	        type: "hour",
 	        onSelect: _this.onItemChange,
-	        onMouseEnter: _this.onEnterSelectPanel.bind(_assertThisInitialized(_this), 'hour')
+	        onMouseEnter: _this.onEnterSelectPanel.bind(_this, 'hour')
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getMinuteSelect", function (minute) {
+	    _defineProperty(_this, "getMinuteSelect", function (minute) {
 	      var _this$props3 = _this.props,
 	        prefixCls = _this$props3.prefixCls,
 	        minuteOptions = _this$props3.minuteOptions,
@@ -1660,10 +1636,10 @@
 	        selectedIndex: minuteOptions.indexOf(minute),
 	        type: "minute",
 	        onSelect: _this.onItemChange,
-	        onMouseEnter: _this.onEnterSelectPanel.bind(_assertThisInitialized(_this), 'minute')
+	        onMouseEnter: _this.onEnterSelectPanel.bind(_this, 'minute')
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getSecondSelect", function (second) {
+	    _defineProperty(_this, "getSecondSelect", function (second) {
 	      var _this$props4 = _this.props,
 	        prefixCls = _this$props4.prefixCls,
 	        secondOptions = _this$props4.secondOptions,
@@ -1683,10 +1659,10 @@
 	        selectedIndex: secondOptions.indexOf(second),
 	        type: "second",
 	        onSelect: _this.onItemChange,
-	        onMouseEnter: _this.onEnterSelectPanel.bind(_assertThisInitialized(_this), 'second')
+	        onMouseEnter: _this.onEnterSelectPanel.bind(_this, 'second')
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getAMPMSelect", function (period) {
+	    _defineProperty(_this, "getAMPMSelect", function (period) {
 	      var _this$props5 = _this.props,
 	        prefixCls = _this$props5.prefixCls,
 	        showAMPM = _this$props5.showAMPM,
@@ -1708,12 +1684,13 @@
 	        selectedIndex: period === 'AM' ? 0 : 1,
 	        type: "period",
 	        onSelect: _this.onItemChange,
-	        onMouseEnter: _this.onEnterSelectPanel.bind(_assertThisInitialized(_this), 'period')
+	        onMouseEnter: _this.onEnterSelectPanel.bind(_this, 'period')
 	      });
 	    });
 	    return _this;
 	  }
-	  _createClass(Combobox, [{
+	  _inherits(Combobox, _React$Component);
+	  return _createClass(Combobox, [{
 	    key: "render",
 	    value: function render() {
 	      var _this$props6 = this.props,
@@ -1725,7 +1702,6 @@
 	      }, this.getHourSelect(value.hour()), this.getMinuteSelect(value.minute()), this.getSecondSelect(value.second()), this.getAMPMSelect(value.hour() < 12 ? 'AM' : 'PM'));
 	    }
 	  }]);
-	  return Combobox;
 	}(React__default.Component);
 	_defineProperty(Combobox, "propTypes", {
 	  format: PropTypes.string,
@@ -1745,8 +1721,8 @@
 	  isGregorian: PropTypes.bool
 	});
 
-	function _createSuper$a(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$a(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$a() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$a(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$a() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$a() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$a = function _isNativeReflectConstruct() { return !!t; })(); }
 	function noop() {}
 	function generateOptions(length, disabledOptions, hideDisabledOptions) {
 	  var arr = [];
@@ -1758,22 +1734,20 @@
 	  return arr;
 	}
 	var Panel = /*#__PURE__*/function (_React$Component) {
-	  _inherits(Panel, _React$Component);
-	  var _super = _createSuper$a(Panel);
 	  function Panel(props) {
 	    var _this;
 	    _classCallCheck(this, Panel);
-	    _this = _super.call(this, props);
-	    _defineProperty(_assertThisInitialized(_this), "onChange", function (newValue) {
+	    _this = _callSuper$a(this, Panel, [props]);
+	    _defineProperty(_this, "onChange", function (newValue) {
 	      _this.setState({
 	        value: newValue
 	      });
 	      _this.props.onChange(newValue);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onClear", function () {
+	    _defineProperty(_this, "onClear", function () {
 	      _this.props.onClear();
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onCurrentSelectPanelChange", function (currentSelectPanel) {
+	    _defineProperty(_this, "onCurrentSelectPanelChange", function (currentSelectPanel) {
 	      _this.setState({
 	        currentSelectPanel: currentSelectPanel
 	      });
@@ -1784,7 +1758,8 @@
 	    };
 	    return _this;
 	  }
-	  _createClass(Panel, [{
+	  _inherits(Panel, _React$Component);
+	  return _createClass(Panel, [{
 	    key: "UNSAFE_componentWillReceiveProps",
 	    value: function UNSAFE_componentWillReceiveProps(nextProps) {
 	      var value = nextProps.value;
@@ -1867,7 +1842,6 @@
 	      }));
 	    }
 	  }]);
-	  return Panel;
 	}(React__default.Component);
 	_defineProperty(Panel, "propTypes", {
 	  clearText: PropTypes.string,
@@ -1929,20 +1903,18 @@
 	  }
 	};
 
-	function _createSuper$b(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$b(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$b() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$b(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$b() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$b() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$b = function _isNativeReflectConstruct() { return !!t; })(); }
 	function noop$1() {}
 	function refFn(field, component) {
 	  this[field] = component;
 	}
 	var Picker = /*#__PURE__*/function (_React$Component) {
-	  _inherits(Picker, _React$Component);
-	  var _super = _createSuper$b(Picker);
 	  function Picker(props) {
 	    var _this;
 	    _classCallCheck(this, Picker);
-	    _this = _super.call(this, props);
-	    _defineProperty(_assertThisInitialized(_this), "setOpen", function (open, callback) {
+	    _this = _callSuper$b(this, Picker, [props]);
+	    _defineProperty(_this, "setOpen", function (open, callback) {
 	      var _this$props = _this.props,
 	        onOpen = _this$props.onOpen,
 	        onClose = _this$props.onClose;
@@ -1960,26 +1932,26 @@
 	        }
 	      }
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onPanelChange", function (value) {
+	    _defineProperty(_this, "onPanelChange", function (value) {
 	      _this.setValue(value);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onPanelClear", function () {
+	    _defineProperty(_this, "onPanelClear", function () {
 	      _this.setValue(null);
 	      _this.setOpen(false);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onVisibleChange", function (open) {
+	    _defineProperty(_this, "onVisibleChange", function (open) {
 	      _this.setOpen(open);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onEsc", function () {
+	    _defineProperty(_this, "onEsc", function () {
 	      _this.setOpen(false);
 	      _this.picker.focus();
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "onKeyDown", function (e) {
+	    _defineProperty(_this, "onKeyDown", function (e) {
 	      if (e.keyCode === 40) {
 	        _this.setOpen(true);
 	      }
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "setValue", function (value) {
+	    _defineProperty(_this, "setValue", function (value) {
 	      if (!('value' in _this.props)) {
 	        _this.setState({
 	          value: value
@@ -1987,7 +1959,7 @@
 	      }
 	      _this.props.onChange(value);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getFormat", function () {
+	    _defineProperty(_this, "getFormat", function () {
 	      var format = _this.props.format;
 	      if (_this.props.format) {
 	        format = _this.props.format;
@@ -2003,7 +1975,7 @@
 	      }
 	      return format;
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "getPanelElement", function () {
+	    _defineProperty(_this, "getPanelElement", function () {
 	      var _this$props2 = _this.props,
 	        prefixCls = _this$props2.prefixCls,
 	        placeholder = _this$props2.placeholder,
@@ -2044,7 +2016,7 @@
 	        hideDisabledOptions: hideDisabledOptions
 	      });
 	    });
-	    _this.savePanelRef = refFn.bind(_assertThisInitialized(_this), 'panelInstance');
+	    _this.savePanelRef = refFn.bind(_this, 'panelInstance');
 	    var _this$props3 = _this.props,
 	      defaultOpen = _this$props3.defaultOpen,
 	      defaultValue = _this$props3.defaultValue,
@@ -2058,7 +2030,8 @@
 	    };
 	    return _this;
 	  }
-	  _createClass(Picker, [{
+	  _inherits(Picker, _React$Component);
+	  return _createClass(Picker, [{
 	    key: "UNSAFE_componentWillReceiveProps",
 	    value: function UNSAFE_componentWillReceiveProps(nextProps) {
 	      var value = nextProps.value,
@@ -2132,7 +2105,6 @@
 	      })));
 	    }
 	  }]);
-	  return Picker;
 	}(React__default.Component);
 	_defineProperty(Picker, "propTypes", {
 	  prefixCls: PropTypes.string,
@@ -2187,8 +2159,8 @@
 	  onClose: noop$1
 	});
 
-	function _createSuper$c(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$c(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$c() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$c(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$c() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$c() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$c = function _isNativeReflectConstruct() { return !!t; })(); }
 	var disabledMinutes = function disabledMinutes() {
 	  return _toConsumableArray(Array(60)).map(function (v, i) {
 	    return i;
@@ -2197,13 +2169,12 @@
 	  });
 	};
 	var MyTimePicker = /*#__PURE__*/function (_Component) {
-	  _inherits(MyTimePicker, _Component);
-	  var _super = _createSuper$c(MyTimePicker);
 	  function MyTimePicker() {
 	    _classCallCheck(this, MyTimePicker);
-	    return _super.apply(this, arguments);
+	    return _callSuper$c(this, MyTimePicker, arguments);
 	  }
-	  _createClass(MyTimePicker, [{
+	  _inherits(MyTimePicker, _Component);
+	  return _createClass(MyTimePicker, [{
 	    key: "handleChange",
 	    value: function handleChange(value) {
 	      var _this$props = this.props,
@@ -2246,7 +2217,6 @@
 	      });
 	    }
 	  }]);
-	  return MyTimePicker;
 	}(React.Component);
 	_defineProperty(MyTimePicker, "propTypes", {
 	  momentValue: PropTypes.object,
@@ -2257,18 +2227,16 @@
 	  momentValue: momentJalaali()
 	});
 
-	function _createSuper$d(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$d(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-	function _isNativeReflectConstruct$d() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+	function _callSuper$d(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct$d() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+	function _isNativeReflectConstruct$d() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct$d = function _isNativeReflectConstruct() { return !!t; })(); }
 	var outsideClickIgnoreClass = 'ignore--click--outside';
 	var DatePicker = /*#__PURE__*/function (_Component) {
-	  _inherits(DatePicker, _Component);
-	  var _super = _createSuper$d(DatePicker);
 	  function DatePicker(props) {
 	    var _this;
 	    _classCallCheck(this, DatePicker);
-	    _this = _super.call(this, props);
+	    _this = _callSuper$d(this, DatePicker, [props]);
 	    // create a ref to store the textInput DOM element
-	    _defineProperty(_assertThisInitialized(_this), "setOpen", function (isOpen) {
+	    _defineProperty(_this, "setOpen", function (isOpen) {
 	      _this.setState({
 	        isOpen: isOpen
 	      });
@@ -2276,7 +2244,7 @@
 	        _this.props.onOpen(isOpen);
 	      }
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "toggleMode", function () {
+	    _defineProperty(_this, "toggleMode", function () {
 	      var isGregorian = !_this.state.isGregorian;
 	      var nextPropsInputFormat = _this.props.inputFormat;
 	      var nextPropsInputJalaaliFormat = _this.props.inputJalaaliFormat;
@@ -2285,10 +2253,10 @@
 	        inputValue: _this.getValue(_this.props.value, isGregorian, _this.props.timePicker)
 	      });
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "handleFocus", function () {
+	    _defineProperty(_this, "handleFocus", function () {
 	      _this.setOpen(true);
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "renderInput", function (ref) {
+	    _defineProperty(_this, "renderInput", function (ref) {
 	      var _this$state = _this.state,
 	        isOpen = _this$state.isOpen,
 	        inputValue = _this$state.inputValue,
@@ -2304,16 +2272,16 @@
 	        ref: function ref(inst) {
 	          _this.input = inst;
 	        },
-	        onFocus: _this.handleFocus.bind(_assertThisInitialized(_this)),
-	        onBlur: _this.hanldeBlur.bind(_assertThisInitialized(_this)),
-	        onChange: _this.handleInputChange.bind(_assertThisInitialized(_this)),
-	        onClick: _this.handleInputClick.bind(_assertThisInitialized(_this)),
+	        onFocus: _this.handleFocus.bind(_this),
+	        onBlur: _this.hanldeBlur.bind(_this),
+	        onChange: _this.handleInputChange.bind(_this),
+	        onClick: _this.handleInputClick.bind(_this),
 	        value: isGregorian || !_this.props.persianDigits ? inputValue : _this.toPersianDigits(inputValue),
 	        readOnly: _this.props.inputReadOnly === true,
 	        disabled: _this.props.disabled
 	      }));
 	    });
-	    _defineProperty(_assertThisInitialized(_this), "renderCalendar", function (ref) {
+	    _defineProperty(_this, "renderCalendar", function (ref) {
 	      var _this$state2 = _this.state,
 	        momentValue = _this$state2.momentValue,
 	        isGregorian = _this$state2.isGregorian,
@@ -2338,8 +2306,8 @@
 	        selectedDay: momentValue,
 	        defaultYear: defaultYear,
 	        defaultMonth: defaultMonth,
-	        onSelect: _this.handleSelectDay.bind(_assertThisInitialized(_this)),
-	        onClickOutside: _this.handleClickOutsideCalendar.bind(_assertThisInitialized(_this)),
+	        onSelect: _this.handleSelectDay.bind(_this),
+	        onClickOutside: _this.handleClickOutsideCalendar.bind(_this),
 	        outsideClickIgnoreClass: outsideClickIgnoreClass,
 	        styles: styles,
 	        containerProps: calendarContainerProps,
@@ -2355,7 +2323,7 @@
 	          min: min,
 	          max: max,
 	          momentValue: momentValue,
-	          setMomentValue: _this.setMomentValue.bind(_assertThisInitialized(_this))
+	          setMomentValue: _this.setMomentValue.bind(_this)
 	        }) : null
 	      }));
 	    });
@@ -2373,7 +2341,8 @@
 	    };
 	    return _this;
 	  }
-	  _createClass(DatePicker, [{
+	  _inherits(DatePicker, _Component);
+	  return _createClass(DatePicker, [{
 	    key: "getInputFormat",
 	    value: function getInputFormat(isGregorian, timePicker) {
 	      if (timePicker) return isGregorian ? 'YYYY/M/D hh:mm A' : 'jYYYY/jM/jD hh:mm A';
@@ -2581,7 +2550,6 @@
 	      }));
 	    }
 	  }]);
-	  return DatePicker;
 	}(React.Component);
 	_defineProperty(DatePicker, "defaultProps", {
 	  styles: undefined,
