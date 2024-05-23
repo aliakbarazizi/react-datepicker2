@@ -1,11 +1,11 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('moment-jalaali'), require('react'), require('react-tether'), require('classnames'), require('prop-types'), require('react-onclickoutside'), require('lodash.range'), require('rc-trigger'), require('react-dom')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'moment-jalaali', 'react', 'react-tether', 'classnames', 'prop-types', 'react-onclickoutside', 'lodash.range', 'rc-trigger', 'react-dom'], factory) :
-	(global = global || self, factory(global.DatePicker = {}, global.momentJalaali, global.React, global.TetherComponent, global.classnames, global.PropTypes, global.onClickOutside, global.range, global.Trigger, global.ReactDom));
-}(this, (function (exports, momentJalaali, React, TetherComponent, classnames, PropTypes, onClickOutside, range, Trigger, ReactDom) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('moment-jalaali'), require('react-tether'), require('classnames'), require('prop-types'), require('react-onclickoutside'), require('lodash.range'), require('rc-trigger'), require('react-dom')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'react', 'moment-jalaali', 'react-tether', 'classnames', 'prop-types', 'react-onclickoutside', 'lodash.range', 'rc-trigger', 'react-dom'], factory) :
+	(global = global || self, factory(global.DatePicker = {}, global.React, global.momentJalaali, global.TetherComponent, global.classnames, global.PropTypes, global.onClickOutside, global.range, global.Trigger, global.ReactDom));
+}(this, (function (exports, React, momentJalaali, TetherComponent, classnames, PropTypes, onClickOutside, range, Trigger, ReactDom) { 'use strict';
 
-	momentJalaali = momentJalaali && Object.prototype.hasOwnProperty.call(momentJalaali, 'default') ? momentJalaali['default'] : momentJalaali;
 	var React__default = 'default' in React ? React['default'] : React;
+	momentJalaali = momentJalaali && Object.prototype.hasOwnProperty.call(momentJalaali, 'default') ? momentJalaali['default'] : momentJalaali;
 	TetherComponent = TetherComponent && Object.prototype.hasOwnProperty.call(TetherComponent, 'default') ? TetherComponent['default'] : TetherComponent;
 	classnames = classnames && Object.prototype.hasOwnProperty.call(classnames, 'default') ? classnames['default'] : classnames;
 	PropTypes = PropTypes && Object.prototype.hasOwnProperty.call(PropTypes, 'default') ? PropTypes['default'] : PropTypes;
@@ -2602,10 +2602,6 @@
 	    }],
 	    offset: '-10px -10px'
 	  }
-	});
-
-	momentJalaali.loadPersian({
-	  dialect: 'persian-modern'
 	});
 
 	exports.Calendar = Calendar;
